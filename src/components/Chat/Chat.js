@@ -11,6 +11,8 @@ import './Chat.css'
 
 let socket
 
+const ENDPOINT = 'https://priority-chat-backend.onrender.com/'
+
 const Chat = () => {
   const [name, setName] = useState('')
   const [room, setRoom] = useState('')
@@ -20,10 +22,8 @@ const Chat = () => {
 
   const search = window.location.search
 
-  const ENDPOINT = 'localhost:5000'
   useEffect(() => {
     const { name, room } = queryString.parse(search)
-
     socket = io(ENDPOINT)
 
     setRoom(room)
